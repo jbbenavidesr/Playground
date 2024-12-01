@@ -1,0 +1,29 @@
+identifier: 001
+name: Advent of code 2024
+description: Solving the Advent of Code 2024 challenges
+
+tags:
+  - language:
+      - python
+      - clojure
+  - domain:
+      - algorithms
+      - functional-programming
+  - difficulty: beginner
+  - status: active
+
+metadata:
+  created: 2024-12-01
+  last-updated: 2024-12-01
+  learning-goals:
+    - Have fun solving the Advent of Code 2024 challenges
+    - Learn new programming concepts like functional programming
+    - Improve problem-solving skills
+    - Learn new programming languages like Clojure
+
+links:
+  # Link for important resources like course, book or tutorial followed.
+  - calendar: https://adventofcode.com/2024
+
+notes:
+  - Hope this year I actually finish all the challenges

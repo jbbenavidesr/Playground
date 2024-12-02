@@ -30,38 +30,33 @@ Projects are tagged using a simple YAML-based system in the `.tags` file:
 
 #### `.tags` template
 
-```yaml
-identifier: 001
-name: <project_name>
-description: <project_description>
+```toml
+# Project Tags Template
+# Replace placeholders with your specific project details
 
-tags:
-  - language: <programming_language> # Could also be a list
-  - domain:
-      # List of domains explored in the project (some examples)
-      - web development
-      - performance
-  - tools:
-      # Tools to be used
-      - flexbox
-      - django
-  - difficulty: <difficulty>
-  - status: <current_status>
+identifier = "{PROJECT_NUMBER}"
+name = "{PROJECT_NAME}"
+description = "{PROJECT_DESCRIPTION}"
 
-metadata:
-  created: <creation_date>
-  last-updated: <update_date>
-  learning-goals:
-    # Learning goals of the project
-    - Practice web development with django
-    - Learn django performance techniques
+[tags]
+language = ["{PROGRAMMING_LANGUAGES}"]  # e.g., ["python", "javascript"]
+domain = ["{PROJECT_DOMAINS}"]  # e.g., ["web", "data-science"]
+tools = ["{TOOLS_AND_LIBRARIES}"]  # e.g., ["pandas", "react"]
+difficulty = "{DIFFICULTY_LEVEL}"  # beginner/intermediate/advanced
+status = "{PROJECT_STATUS}"  # active/experimental/learning
 
-links:
-  # Link for important resources like course, book or tutorial followed.
-  - <link_name>: <url>
+[metadata]
+created = {CREATION_DATE}  # YYYY-MM-DD
+last-updated = {LAST_UPDATED_DATE}  # YYYY-MM-DD
 
-notes:
-  - Some notes for when I come back or for remembering my steps
+learning-goals = [
+    "{LEARNING_GOAL_1}",
+    "{LEARNING_GOAL_2}"
+]
+
+[links]
+{LINK-NAME} = "{LINK-URL}"
+{LINK-NAME} = "{LINK-URL}"
 ```
 
 ## How to Use This Repository

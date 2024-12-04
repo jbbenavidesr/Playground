@@ -4,7 +4,7 @@ description = "Solving the Advent of Code 2024 challenges"
 
 [tags]
 language = ["python", "clojure"] 
-domain = ["algorithms", "functional-programming"] 
+domain = ["algorithms", "functional-programming", "cli-application"] 
 difficulty = "beginner" 
 status = "active"
 
@@ -16,6 +16,7 @@ learning-goals = [
     "Have fun solving the Advent of Code 2024 challenges",
     "Learn new programming concepts like functional programming",
     "Improve problem-solving skills",
+    "Build a command line application",
     "Learn new programming languages like Clojure",
 ]
 

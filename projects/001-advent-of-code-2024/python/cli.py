@@ -5,6 +5,10 @@ from argparse import ArgumentParser
 import importlib
 
 
+def identity[T](x: T) -> T:
+    return x
+
+
 def import_day_module(day: int):
     """
     Dynamically import the module for the specified day.
@@ -20,7 +24,7 @@ def import_day_module(day: int):
         sys.exit(1)
 
 
-def read_input[T](input_file: Path, parser: Callable[[str], T] = lambda x: x) -> T:
+def read_input[T](input_file: Path, parser: Callable[[str], T] = identity) -> T:
     """
     Read the input file and return the necessary data parsed according to the parser
     function. If no parser function is passed, just return the file content as a string.
@@ -53,7 +57,8 @@ def run_challenge(day: int, input_file: Path) -> list[str]:
 
     challenge_module = import_day_module(day)
 
-    input = read_input(input_file, challenge_module.parse_input)
+    parser = getattr(challenge_module, "parse_input", identity)
+    input = read_input(input_file, parser)
 
     return challenge_module.solve(input)
 

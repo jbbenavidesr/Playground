@@ -30,8 +30,21 @@ def challenge_1(reports: list[list[int]]):
     return sum(is_report_safe(report) for report in reports)
 
 
+def is_report_safe_with_dampener(report: list[int]) -> bool:
+
+    if is_report_safe(report):
+        return True
+
+    for i in range(len(report)):
+        if is_report_safe(report[:i] + report[i + 1 :]):
+            return True
+
+    return False
+
+
 def challenge_2(reports: list[list[int]]):
-    return None
+    """Count the number of safe reports after applying the Problem Dampener"""
+    return sum(is_report_safe_with_dampener(report) for report in reports)
 
 
 def parse_input(raw_input: str) -> list[list[int]]:
@@ -40,8 +53,12 @@ def parse_input(raw_input: str) -> list[list[int]]:
     return [[int(level) for level in line.split()] for line in raw_input]
 
 
-def solve(report: list[list[int]]):
+def solve(reports: list[list[int]]):
 
-    result_1 = challenge_1(report)
+    result_1 = challenge_1(reports)
+    result_2 = challenge_2(reports)
 
-    return [f"Safe Reports: {result_1}"]
+    return [
+        f"Safe Reports: {result_1}",
+        f"Safe Reports with Problem Dampener: {result_2}",
+    ]

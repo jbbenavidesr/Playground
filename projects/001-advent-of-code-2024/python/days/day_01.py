@@ -1,7 +1,3 @@
-from pathlib import Path
-from argparse import ArgumentParser
-
-
 def challenge_1(list_1: list, list_2: list):
     """Calculate the total distance between the two lists.
 
@@ -36,41 +32,24 @@ def challenge_2(list_1: list, list_2: list):
     return similarity_score
 
 
-def parse_input(input_file: Path):
+def parse_input(raw_input: str) -> tuple[list[int], list[int]]:
     """Parse the input file and return the two lists."""
 
     list_1 = []
     list_2 = []
 
-    with input_file.open("r") as f:
-        for line in f:
-            chars = line.split()
-            list_1.append(int(chars[0]))
-            list_2.append(int(chars[1]))
+    for line in raw_input:
+        chars = line.split()
+        list_1.append(int(chars[0]))
+        list_2.append(int(chars[1]))
 
     return list_1, list_2
 
 
-def main():
+def solve(input: tuple[list[int], list[int]]) -> list[str]:
 
-    parser = ArgumentParser()
-    parser.add_argument("input_file", type=Path)
-    args = parser.parse_args()
-    input_file = args.input_file
+    result_1 = challenge_1(*input)
 
-    if not input_file.exists():
-        print(f"File {input_file} does not exist.")
-        return
+    result_2 = challenge_2(*input)
 
-    list_1, list_2 = parse_input(input_file)
-    result = challenge_1(list_1, list_2)
-
-    print(f"Total distance: {result}")
-
-    result = challenge_2(list_1, list_2)
-
-    print(f"Similarity score: {result}")
-
-
-if __name__ == "__main__":
-    main()
+    return [f"Total distance: {result_1}", f"Similarity score: {result_2}"]

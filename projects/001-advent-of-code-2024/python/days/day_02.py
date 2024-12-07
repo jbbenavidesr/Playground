@@ -1,7 +1,3 @@
-from pathlib import Path
-from argparse import ArgumentParser
-
-
 def verify_step(
     step: int, direction: int, max_step: int = 3, min_step: int = 1
 ) -> bool:
@@ -38,33 +34,14 @@ def challenge_2(reports: list[list[int]]):
     return None
 
 
-def parse_input(input_file: Path) -> list[list[int]]:
+def parse_input(raw_input: str) -> list[list[int]]:
     """Parse the input file."""
 
-    with input_file.open() as file:
-        return [[int(level) for level in line.split()] for line in file]
+    return [[int(level) for level in line.split()] for line in raw_input]
 
 
-def main():
+def solve(report: list[list[int]]):
 
-    parser = ArgumentParser()
-    parser.add_argument("input_file", type=Path)
-    args = parser.parse_args()
-    input_file = args.input_file
+    result_1 = challenge_1(report)
 
-    if not input_file.exists():
-        print(f"File {input_file} does not exist.")
-        return
-
-    reports = parse_input(input_file)
-    result = challenge_1(reports)
-
-    print(f"Safe Reports: {result}")
-
-    result = challenge_2(reports)
-
-    print(f"Safe Reports with Dampner: {result}")
-
-
-if __name__ == "__main__":
-    main()
+    return [f"Safe Reports: {result_1}"]

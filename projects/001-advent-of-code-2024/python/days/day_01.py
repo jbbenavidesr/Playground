@@ -38,7 +38,7 @@ def parse_input(raw_input: str) -> tuple[list[int], list[int]]:
     list_1 = []
     list_2 = []
 
-    for line in raw_input:
+    for line in raw_input.splitlines():
         chars = line.split()
         list_1.append(int(chars[0]))
         list_2.append(int(chars[1]))

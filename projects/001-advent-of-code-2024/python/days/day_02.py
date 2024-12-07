@@ -50,7 +50,7 @@ def challenge_2(reports: list[list[int]]):
 def parse_input(raw_input: str) -> list[list[int]]:
     """Parse the input file."""
 
-    return [[int(level) for level in line.split()] for line in raw_input]
+    return [[int(level) for level in line.split()] for line in raw_input.splitlines()]
 
 
 def solve(reports: list[list[int]]):

@@ -33,7 +33,7 @@ def read_input[T](input_file: Path, parser: Callable[[str], T] = lambda x: x) ->
 
     try:
         with input_file.open("r") as file:
-            return parser(file.read().split("\n"))
+            return parser(file.read())
     except FileNotFoundError:
         print(
             f"Error: file {input_file} was not found, check that the path is correct."

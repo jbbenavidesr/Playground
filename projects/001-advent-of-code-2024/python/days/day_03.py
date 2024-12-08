@@ -7,7 +7,7 @@ from typing import Iterable, Iterator
 
 def extract_multiplications_from_memory(
     computer_memory: str,
-) -> Iterator[Iterable[int, int]]:
+) -> Iterator[Iterable[int]]:
     """Extract all multiplication pairs from the corrupted memory file.
 
     Multiplication pairs are all that can be found exactly like "mul(X,Y)"

@@ -32,19 +32,19 @@ def extract_words(
 
     for direction in DIRECTIONS:
         word = ""
-        current_position = starting_position
+        x, y = starting_position
         for _ in range(length):
-            if any(pos < 0 for pos in current_position):
+            if x < 0 or y < 0:
                 break
 
             try:
-                word += word_search[current_position[1]][current_position[0]]
+                word += word_search[y][x]
             except IndexError:
                 break
 
-            current_position = (
-                current_position[0] + direction[0],
-                current_position[1] + direction[1],
+            x, y = (
+                x + direction[0],
+                y + direction[1],
             )
 
         if len(word) == length:
@@ -60,6 +60,9 @@ def challenge_1(word_search: WordSearch) -> int:
 
     for y, line in enumerate(word_search):
         for x in range(len(line)):
+            if word_search[y][x] != LOOKUP_WORD[0]:
+                continue
+
             words = extract_words(
                 starting_position=(x, y),
                 word_search=word_search,

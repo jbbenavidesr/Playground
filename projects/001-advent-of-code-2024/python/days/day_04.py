@@ -74,6 +74,27 @@ def challenge_1(word_search: WordSearch) -> int:
     return count
 
 
+def challenge_2(word_search: WordSearch) -> int:
+    """Count the number of times X-MAS appears in the word search"""
+
+    count = 0
+
+    for y in range(1, len(word_search) - 1):
+        for x in range(1, len(word_search[0]) - 1):
+            if word_search[y][x] != "A":
+                continue
+
+            words = [
+                f"{word_search[y-1][x-1]}{word_search[y+1][x+1]}",
+                f"{word_search[y-1][x+1]}{word_search[y+1][x-1]}",
+            ]
+
+            if all((word == "MS" or word == "SM") for word in words):
+                count += 1
+
+    return count
+
+
 def parse_input(input_string: str) -> WordSearch:
     """Turn the input file into a 2D array of letters"""
     return input_string.split("\n")
@@ -82,5 +103,9 @@ def parse_input(input_string: str) -> WordSearch:
 def solve(word_search: WordSearch) -> list[str]:
 
     result_1 = challenge_1(word_search)
+    result_2 = challenge_2(word_search)
 
-    return [f"The word {LOOKUP_WORD} show's up {result_1} times."]
+    return [
+        f"The word {LOOKUP_WORD} show's up {result_1} times.",
+        f"There are {result_2} X-MAS in the word search.",
+    ]

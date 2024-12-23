@@ -3,8 +3,8 @@ name = "Advent of code 2024"
 description = "Solving the Advent of Code 2024 challenges"
 
 [tags]
-language = ["python", "clojure"] 
-domain = ["algorithms", "functional-programming", "cli-application"] 
+language = ["python"] 
+domain = ["algorithms", "TDD", "cli-application"] 
 difficulty = "beginner" 
 status = "active"
 

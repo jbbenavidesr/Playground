@@ -6,6 +6,9 @@ Space for solving the Advent of code challenges for the 2024 version.
 
 - [Day 1](https://adventofcode.com/2024/day/1): Historian Hysteria
 - [Day 2](https://adventofcode.com/2024/day/2): Red-Nosed Reports
+- [Day 3](https://adventofcode.com/2024/day/3): Mull It Over
+- [Day 4](https://adventofcode.com/2024/day/4): Ceres Search
+- [Day 5](https://adventofcode.com/2024/day/5): Print Queue
 
 ## Goal
 
